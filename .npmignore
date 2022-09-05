@@ -1,0 +1,7 @@
+.vscode
+generated
+node_modules
+prisma
+src
+.gitignore
+tsconfig.json

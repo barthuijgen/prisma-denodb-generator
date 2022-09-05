@@ -1,6 +1,7 @@
 generator denodb {
   provider = "node ./dist/index.js"
   output   = "../generated/db.ts"
+  import   = "https://deno.land/x/denodb@v1.0.40/mod.ts"
 }
 
 datasource db {

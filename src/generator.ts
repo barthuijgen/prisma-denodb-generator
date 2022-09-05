@@ -1,8 +1,6 @@
 import * as prettier from "prettier";
 import { DMMF } from "@prisma/generator-helper";
 
-const denoDbImoport = "https://deno.land/x/denodb@v1.0.40/mod.ts";
-
 function isFieldDefaultObject(
   _default: DMMF.Field["default"]
 ): _default is DMMF.FieldDefault {
@@ -112,9 +110,10 @@ function parseFieldDefault(field: DMMF.Field) {
   return typescript;
 }
 
-export function generate(dmmf: DMMF.Document) {
+export function generate(dmmf: DMMF.Document, importUrl?: string) {
+  const denodb = importUrl || "https://deno.land/x/denodb@v1.0.40/mod.ts";
   let typescript = `
-  import { DataTypes, Model, Database } from '${denoDbImoport}';
+  import { DataTypes, Model, Database } from '${denodb}';
   `;
 
   dmmf.datamodel.models.forEach((model) => {

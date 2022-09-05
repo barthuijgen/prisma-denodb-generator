@@ -15,7 +15,6 @@ generatorHandler({
     if (!options.generator.output) {
       throw new Error("No output was specified for Prisma Schema Generator");
     }
-
     const outputDir =
       // This ensures previous version of prisma are still supported
       typeof options.generator.output === "string"
@@ -26,8 +25,7 @@ generatorHandler({
       await fs.mkdir(path.dirname(outputDir), {
         recursive: true,
       });
-      fs.writeFile("./dump.json", JSON.stringify(options.dmmf));
-      const output = generate(options.dmmf);
+      const output = generate(options.dmmf, options.generator.config.import);
       const filename = outputDir.endsWith(".ts")
         ? outputDir
         : path.join(outputDir, "index.ts");

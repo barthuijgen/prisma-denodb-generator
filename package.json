@@ -1,14 +1,31 @@
 {
   "name": "prisma-denodb-generator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/barthuijgen/prisma-denodb-generator.git"
+  },
+  "keywords": [
+    "denodb",
+    "prisma",
+    "generator"
+  ],
+  "main": "./dist/index.js",
+  "bin": {
+    "prisma-denodb-generator": "bin/cli.js"
+  },
   "scripts": {
     "generate": "prisma generate",
     "build": "tsc"
   },
-  "devDependencies": {
+  "dependencies": {
     "@prisma/generator-helper": "^4.3.1",
+    "lodash": "^4.17.21",
+    "prettier": "^2.7.1"
+  },
+  "devDependencies": {
     "@prisma/sdk": "^4.0.0",
     "@types/lodash": "^4.14.184",
     "@types/prettier": "^2.7.0",
@@ -16,9 +33,7 @@
     "prisma-json-schema-generator": "^3.1.1",
     "typescript": "^4.8.2"
   },
-  "dependencies": {
-    "@prisma/generator-helper": "^4.3.1",
-    "lodash": "^4.17.21",
-    "prettier": "^2.7.1"
+  "engines": {
+    "node": ">=14"
   }
 }
