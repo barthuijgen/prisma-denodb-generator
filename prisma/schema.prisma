@@ -1,0 +1,26 @@
+generator denodb {
+  provider = "node ./dist/index.js"
+  output   = "../generated/db.ts"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  Guest
+  User
+  Admin
+}
+
+model User {
+  id             Int     @id @default(autoincrement())
+  string         String
+  optionalString String?
+  uniqueString   String  @unique
+  defaultString  String  @default("foo bar")
+  defaultInt     Int     @default(123)
+  defaultFloat   Float   @default(3.14)
+  role           Role
+}
